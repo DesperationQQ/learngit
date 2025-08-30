@@ -1,70 +1,39 @@
 # main.py
 import argparse
 import csv
-from datetime import datetime, timedelta, timezone
+import datetime as dt
+from typing import List, Dict, Optional
+
 from loguru import logger
 
-# 源：按需导入，缺哪个就跳过
-try:
-    from spiders import stcn
-except Exception as e:
-    stcn = None
-    logger.warning(f"[LOAD] STCN not available: {e}")
-
-try:
-    from spiders import cs
-except Exception as e:
-    cs = None
-    logger.warning(f"[LOAD] CS not available: {e}")
-
-try:
-    from spiders import sina
-except Exception:
-    sina = None  # 你的工程里可能没有；忽略即可
-
-CN_TZ = timezone(timedelta(hours=8))
+from spiders import sina
+from spiders import stcn
 
 
-def _to_dt(s: str | None):
-    if not s:
+# === 时间工具：统一为东八区 aware ===
+CST = dt.timezone(dt.timedelta(hours=8))
+
+def as_cst_aware(x: Optional[dt.datetime]) -> Optional[dt.datetime]:
+    """把 None/naive/其他时区的 datetime 统一成东八区 aware；其余返回 None。"""
+    if x is None:
         return None
-    # 兼容 "YYYY-MM-DD HH:MM:SS"
-    try:
-        return datetime.fromisoformat(s.replace(" ", "T")).astimezone(CN_TZ)
-    except Exception:
+    if not isinstance(x, dt.datetime):
         return None
+    if x.tzinfo is None:
+        return x.replace(tzinfo=CST)
+    return x.astimezone(CST)
 
 
-def _recent_enough(row: dict, since_days: int) -> bool:
-    """优先用 row['published_at']；没有就尝试从 URL 提取（stcn 提供了工具）。"""
-    cutoff = datetime.now(CN_TZ) - timedelta(days=since_days)
-    dt = _to_dt(row.get("published_at"))
-    if dt:
-        return dt >= cutoff
-
-    # URL 提取（仅 stcn/cs 能较稳提到日期）
-    url = row.get("url", "")
-    try:
-        if "stcn.com" in url and stcn:
-            dt2 = stcn.date_from_url(url)
-            if dt2:
-                return dt2 >= cutoff
-    except Exception:
-        pass
-    return False  # 没时间就丢弃，确保“近 N 天”
-
-
-def _keyword_ok(row: dict, keyword: str | None) -> bool:
-    if not keyword:
-        return True
-    title = (row.get("title") or "").lower()
-    return keyword.lower() in title
-
-
-def dump_csv(rows, out_path: str):
+# === 结果写盘 ===
+def dump_csv(rows: List[Dict], out_path: str):
     if not rows:
         logger.warning("No data grabbed.")
         return
+    # 统一 pub_dt -> ISO 字符串
+    for r in rows:
+        if "pub_dt" in r:
+            r["pub_dt"] = as_cst_aware(r.get("pub_dt"))
+            r["pub_dt"] = r["pub_dt"].isoformat(timespec="seconds") if r["pub_dt"] else ""
     keys = rows[0].keys()
     with open(out_path, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=keys)
@@ -72,97 +41,64 @@ def dump_csv(rows, out_path: str):
         w.writerows(rows)
     logger.success(f"Saved {len(rows)} rows -> {out_path}")
 
-    # 附带输出 URL 列（去重）
-    try:
-        urls = []
-        seen = set()
-        for r in rows:
-            u = r.get("url")
-            if u and u not in seen:
-                seen.add(u); urls.append(u)
-        url_path = out_path.rsplit(".", 1)[0] + "_urls.txt"
-        with open(url_path, "w", encoding="utf-8") as f:
-            f.write("\n".join(urls))
-        logger.success(f"Also saved URLs -> {url_path}")
-    except Exception as e:
-        logger.warning(f"Save URLs failed: {e}")
+
+# === 过滤：最近 N 天 ===
+def filter_by_since_days(rows: List[Dict], since_days: Optional[int]) -> List[Dict]:
+    if not since_days:
+        return rows
+    cutoff = dt.datetime.now(CST) - dt.timedelta(days=since_days)
+    out = []
+    for r in rows:
+        d = as_cst_aware(r.get("pub_dt"))
+        if d and d >= cutoff:
+            out.append(r)
+    return out
 
 
-def run_stcn(limit: int, out: str, since_days: int, keyword: str | None):
-    if not stcn:
-        logger.error("[STCN] 模块缺失")
-        return
-    lst = stcn.fetch_list(limit=limit)
-
-    # 拉详情（发布时间、正文）
-    rows = []
-    for it in lst:
-        try:
-            r = stcn.fetch_detail(it["url"])
-            # 补上列表拿到的标题作为兜底
-            if not r.get("title"):
-                r["title"] = it.get("title", "")
-            if _recent_enough(r, since_days) and _keyword_ok(r, keyword):
-                rows.append(r)
-        except Exception as e:
-            logger.warning(f"[STCN] 详情失败：{it['url']} - {e}")
-    if not rows:
-        logger.warning("[STCN] No data after filtering.")
-        return
-    dump_csv(rows, out)
+# === 过滤：关键词（标题或正文）===
+def filter_by_keyword(rows: List[Dict], keyword: Optional[str]) -> List[Dict]:
+    if not keyword:
+        return rows
+    kw = keyword.lower()
+    out = []
+    for r in rows:
+        title = (r.get("title") or "").lower()
+        content = (r.get("content") or "").lower()
+        if kw in title or kw in content:
+            out.append(r)
+    return out
 
 
-def run_cs(limit: int, out: str, since_days: int, keyword: str | None):
-    if not cs:
-        logger.error("[CS] 模块缺失")
-        return
-    lst = cs.fetch_list(limit=limit)
-
-    from spiders.cs import fetch_detail as cs_detail  # 确保可用
-    rows = []
-    for it in lst:
-        try:
-            r = cs_detail(it["url"])
-            if not r.get("title"):
-                r["title"] = it.get("title", "")
-            if _recent_enough(r, since_days) and _keyword_ok(r, keyword):
-                rows.append(r)
-        except Exception as e:
-            logger.warning(f"[CS] 详情失败：{it['url']} - {e}")
-    if not rows:
-        logger.warning("[CS] No data after filtering.")
-        return
-    dump_csv(rows, out)
+# === 各源运行 ===
+def run_sina(limit: int, out: str, since_days: Optional[int], keyword: Optional[str]):
+    items = sina.fetch_list_sync(limit=limit)
+    items = filter_by_since_days(items, since_days)
+    items = filter_by_keyword(items, keyword)
+    # 按时间倒序
+    items.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
+    dump_csv(items, out)
 
 
-def run_sina(limit: int, out: str, since_days: int, keyword: str | None):
-    if not sina:
-        logger.error("[SINA] 模块缺失")
-        return
-    # 你的工程里如果有 fetch_list_sync 就用之；否则按你已有实现改
-    lst = sina.fetch_list_sync(limit=limit)  # 已包含 title/url/published_at?
-    rows = []
-    for it in lst:
-        if _recent_enough(it, since_days) and _keyword_ok(it, keyword):
-            rows.append(it)
-    if not rows:
-        logger.warning("[SINA] No data after filtering.")
-        return
-    dump_csv(rows, out)
+def run_stcn(limit: int, out: str, since_days: Optional[int], keyword: Optional[str]):
+    # stcn.fetch_list 内部已尽量抓“实时快讯”，但这里再做统一过滤/排序
+    lst = stcn.fetch_list(limit=limit * 2, keyword=keyword)  # 多抓一些，后面再截
+    lst = filter_by_since_days(lst, since_days)
+    lst = filter_by_keyword(lst, keyword)
+    lst.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
+    lst = lst[:limit]
+    dump_csv(lst, out)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--source", required=True, choices=["stcn", "cs", "sina"], help="news source")
+    ap.add_argument("--source", required=True, choices=["sina", "stcn"], help="news source")
     ap.add_argument("--limit", type=int, default=50)
+    ap.add_argument("--since-days", type=int, default=None, help="only keep items within N days")
+    ap.add_argument("--keyword", type=str, default=None, help="filter by keyword in title/content")
     ap.add_argument("--out", type=str, default="news.csv")
-    ap.add_argument("--since-days", type=int, default=7, help="only keep news within N days")
-    ap.add_argument("--keyword", type=str, default=None, help="filter by keyword in title")
     args = ap.parse_args()
 
-    if args.source == "stcn":
-        run_stcn(args.limit, args.out, args.since_days, args.keyword)
-    elif args.source == "cs":
-        run_cs(args.limit, args.out, args.since_days, args.keyword)
-    elif args.source == "sina":
+    if args.source == "sina":
         run_sina(args.limit, args.out, args.since_days, args.keyword)
+    elif args.source == "stcn":
+        run_stcn(args.limit, args.out, args.since_days, args.keyword)
