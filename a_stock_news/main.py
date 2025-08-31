@@ -6,15 +6,15 @@ from typing import List, Dict, Optional
 
 from loguru import logger
 
-from spiders import sina
 from spiders import stcn
+from spiders import sina  # 你之前已能使用
+from spiders import cs    # 新增：中国证券网
 
 
 # === 时间工具：统一为东八区 aware ===
 CST = dt.timezone(dt.timedelta(hours=8))
 
 def as_cst_aware(x: Optional[dt.datetime]) -> Optional[dt.datetime]:
-    """把 None/naive/其他时区的 datetime 统一成东八区 aware；其余返回 None。"""
     if x is None:
         return None
     if not isinstance(x, dt.datetime):
@@ -74,14 +74,21 @@ def run_sina(limit: int, out: str, since_days: Optional[int], keyword: Optional[
     items = sina.fetch_list_sync(limit=limit)
     items = filter_by_since_days(items, since_days)
     items = filter_by_keyword(items, keyword)
-    # 按时间倒序
     items.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
     dump_csv(items, out)
 
-
 def run_stcn(limit: int, out: str, since_days: Optional[int], keyword: Optional[str]):
-    # stcn.fetch_list 内部已尽量抓“实时快讯”，但这里再做统一过滤/排序
     lst = stcn.fetch_list(limit=limit * 2, keyword=keyword)  # 多抓一些，后面再截
+    lst = filter_by_since_days(lst, since_days)
+    lst = filter_by_keyword(lst, keyword)
+    lst.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
+    lst = lst[:limit]
+    dump_csv(lst, out)
+
+def run_cs(limit: int, out: str, since_days: Optional[int], keyword: Optional[str]):
+    lst = cs.fetch_list(limit=limit * 2, since_days=since_days, keyword=keyword)
+    # cs.fetch_list 已经做了 since_days / keyword 的一次筛选（为了少解析无效详情），
+    # 这里再统一一遍，防止边界遗漏。
     lst = filter_by_since_days(lst, since_days)
     lst = filter_by_keyword(lst, keyword)
     lst.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
@@ -91,7 +98,7 @@ def run_stcn(limit: int, out: str, since_days: Optional[int], keyword: Optional[
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--source", required=True, choices=["sina", "stcn"], help="news source")
+    ap.add_argument("--source", required=True, choices=["sina", "stcn", "cs"], help="news source")
     ap.add_argument("--limit", type=int, default=50)
     ap.add_argument("--since-days", type=int, default=None, help="only keep items within N days")
     ap.add_argument("--keyword", type=str, default=None, help="filter by keyword in title/content")
@@ -99,6 +106,8 @@ if __name__ == "__main__":
     args = ap.parse_args()
 
     if args.source == "sina":
-        run_sina(args.limit, args.out, args.since_days, args.keyword)
+        run_sina(args.limit, args.out, args.since_days, args.keyword or None)
     elif args.source == "stcn":
-        run_stcn(args.limit, args.out, args.since_days, args.keyword)
+        run_stcn(args.limit, args.out, args.since_days, args.keyword or None)
+    elif args.source == "cs":
+        run_cs(args.limit, args.out, args.since_days, args.keyword or None)
