@@ -2,112 +2,114 @@
 import argparse
 import csv
 import datetime as dt
-from typing import List, Dict, Optional
+import importlib
+import inspect
+import os
+import sys
+from typing import Any, Dict, Iterable, List
 
 from loguru import logger
+from dateutil.tz import tzlocal
 
-from spiders import stcn
-from spiders import sina  # 你之前已能使用
-from spiders import cs    # 新增：中国证券网
+SOURCES = {
+    "sina": "spiders.sina",
+    "stcn": "spiders.stcn",
+    "cs": "spiders.cs",
+    "eastmoney": "spiders.eastmoney",  # 新增
+}
 
+PREFERRED_KEYS = [
+    "title", "url", "pub_time", "source", "channel",
+    "category", "author", "summary", "stock", "id",
+]
 
-# === 时间工具：统一为东八区 aware ===
-CST = dt.timezone(dt.timedelta(hours=8))
+def _iso_dt(v: Any) -> Any:
+    if isinstance(v, dt.datetime):
+        if v.tzinfo is None:
+            v = v.replace(tzinfo=tzlocal())
+        return v.isoformat()
+    return v
 
-def as_cst_aware(x: Optional[dt.datetime]) -> Optional[dt.datetime]:
-    if x is None:
-        return None
-    if not isinstance(x, dt.datetime):
-        return None
-    if x.tzinfo is None:
-        return x.replace(tzinfo=CST)
-    return x.astimezone(CST)
+def _guess_headers(rows: List[Dict[str, Any]]) -> List[str]:
+    all_keys = set()
+    for r in rows:
+        all_keys.update(r.keys())
+    ordered = [k for k in PREFERRED_KEYS if k in all_keys]
+    extra = sorted(k for k in all_keys if k not in ordered)
+    return ordered + extra
 
-
-# === 结果写盘 ===
-def dump_csv(rows: List[Dict], out_path: str):
+def dump_csv(rows: List[Dict[str, Any]], out_path: str) -> None:
     if not rows:
         logger.warning("No data grabbed.")
         return
-    # 统一 pub_dt -> ISO 字符串
-    for r in rows:
-        if "pub_dt" in r:
-            r["pub_dt"] = as_cst_aware(r.get("pub_dt"))
-            r["pub_dt"] = r["pub_dt"].isoformat(timespec="seconds") if r["pub_dt"] else ""
-    keys = rows[0].keys()
-    with open(out_path, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=keys)
-        w.writeheader()
-        w.writerows(rows)
-    logger.success(f"Saved {len(rows)} rows -> {out_path}")
 
+    headers = _guess_headers(rows)
+    normalized_rows = [{k: _iso_dt(r.get(k, "")) for k in headers} for r in rows]
 
-# === 过滤：最近 N 天 ===
-def filter_by_since_days(rows: List[Dict], since_days: Optional[int]) -> List[Dict]:
-    if not since_days:
-        return rows
-    cutoff = dt.datetime.now(CST) - dt.timedelta(days=since_days)
-    out = []
-    for r in rows:
-        d = as_cst_aware(r.get("pub_dt"))
-        if d and d >= cutoff:
-            out.append(r)
-    return out
+    out_dir = os.path.dirname(os.path.abspath(out_path))
+    if out_dir and not os.path.exists(out_dir):
+        os.makedirs(out_dir, exist_ok=True)
 
+    def _write(path: str):
+        with open(path, "w", newline="", encoding="utf-8-sig") as f:
+            w = csv.DictWriter(f, fieldnames=headers, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(normalized_rows)
 
-# === 过滤：关键词（标题或正文）===
-def filter_by_keyword(rows: List[Dict], keyword: Optional[str]) -> List[Dict]:
-    if not keyword:
-        return rows
-    kw = keyword.lower()
-    out = []
-    for r in rows:
-        title = (r.get("title") or "").lower()
-        content = (r.get("content") or "").lower()
-        if kw in title or kw in content:
-            out.append(r)
-    return out
+    try:
+        _write(out_path)
+        logger.success(f"Saved {len(rows)} rows -> {out_path}")
+    except PermissionError:
+        base, ext = os.path.splitext(out_path)
+        alt = f"{base}_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}{ext or '.csv'}"
+        logger.warning(f"Permission denied: '{out_path}'. Try '{alt}'.")
+        _write(alt)
+        logger.success(f"Saved {len(rows)} rows -> {alt}")
 
+def _call_fetch_list(module_name: str, limit: int, since_days: int, keyword: str | None):
+    mod = importlib.import_module(module_name)
+    if not hasattr(mod, "fetch_list"):
+        raise AttributeError(f"{module_name} missing fetch_list")
+    fn = getattr(mod, "fetch_list")
+    sig = inspect.signature(fn)
+    kwargs = {}
+    if "limit" in sig.parameters:
+        kwargs["limit"] = limit
+    if "since_days" in sig.parameters:
+        kwargs["since_days"] = since_days
+    if "keyword" in sig.parameters:
+        kwargs["keyword"] = keyword
+    return fn(**kwargs)
 
-# === 各源运行 ===
-def run_sina(limit: int, out: str, since_days: Optional[int], keyword: Optional[str]):
-    items = sina.fetch_list_sync(limit=limit)
-    items = filter_by_since_days(items, since_days)
-    items = filter_by_keyword(items, keyword)
-    items.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
-    dump_csv(items, out)
+def run_source(source: str, limit: int, out: str, since_days: int, keyword: str | None):
+    module_name = SOURCES[source]
+    rows = _call_fetch_list(module_name, limit, since_days, keyword)
+    if isinstance(rows, list) and limit and len(rows) > limit:
+        rows = rows[:limit]
+    dump_csv(rows, out)
 
-def run_stcn(limit: int, out: str, since_days: Optional[int], keyword: Optional[str]):
-    lst = stcn.fetch_list(limit=limit * 2, keyword=keyword)  # 多抓一些，后面再截
-    lst = filter_by_since_days(lst, since_days)
-    lst = filter_by_keyword(lst, keyword)
-    lst.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
-    lst = lst[:limit]
-    dump_csv(lst, out)
+def parse_args(argv: Iterable[str]) -> argparse.Namespace:
+    p = argparse.ArgumentParser()
+    p.add_argument("--source", required=True, choices=sorted(SOURCES.keys()))
+    p.add_argument("--limit", type=int, default=60)
+    p.add_argument("--since-days", type=int, default=2)
+    p.add_argument("--keyword", type=str, default=None)
+    p.add_argument("--out", type=str, default=None)
+    return p.parse_args(list(argv))
 
-def run_cs(limit: int, out: str, since_days: Optional[int], keyword: Optional[str]):
-    lst = cs.fetch_list(limit=limit * 2, since_days=since_days, keyword=keyword)
-    # cs.fetch_list 已经做了 since_days / keyword 的一次筛选（为了少解析无效详情），
-    # 这里再统一一遍，防止边界遗漏。
-    lst = filter_by_since_days(lst, since_days)
-    lst = filter_by_keyword(lst, keyword)
-    lst.sort(key=lambda x: as_cst_aware(x.get("pub_dt")) or dt.datetime(1970,1,1,tzinfo=CST), reverse=True)
-    lst = lst[:limit]
-    dump_csv(lst, out)
-
+def main(argv: Iterable[str]) -> int:
+    args = parse_args(argv)
+    out_path = args.out or f"{args.source}_news.csv"
+    logger.info(
+        f"Run {args.source}: limit={args.limit}, since_days={args.since_days}, "
+        f"keyword={args.keyword!r}, out={out_path}"
+    )
+    try:
+        run_source(args.source, args.limit, out_path, args.since_days, args.keyword)
+        return 0
+    except Exception as e:
+        logger.exception(e)
+        return 2
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--source", required=True, choices=["sina", "stcn", "cs"], help="news source")
-    ap.add_argument("--limit", type=int, default=50)
-    ap.add_argument("--since-days", type=int, default=None, help="only keep items within N days")
-    ap.add_argument("--keyword", type=str, default=None, help="filter by keyword in title/content")
-    ap.add_argument("--out", type=str, default="news.csv")
-    args = ap.parse_args()
-
-    if args.source == "sina":
-        run_sina(args.limit, args.out, args.since_days, args.keyword or None)
-    elif args.source == "stcn":
-        run_stcn(args.limit, args.out, args.since_days, args.keyword or None)
-    elif args.source == "cs":
-        run_cs(args.limit, args.out, args.since_days, args.keyword or None)
+    sys.exit(main(sys.argv[1:]))
