@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文章合集（80）</title>
+<style>
+  :root {
+    --bg: #0b0c0f;
+    --fg: #e7e9ee;
+    --muted: #a1a8b3;
+    --card: #151821;
+    --card-border: #232735;
+    --accent: #3b82f6;
+    --badge: #1f2937;
+    --shadow: rgba(0,0,0,.25);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f8fafc;
+      --fg: #0b1220;
+      --muted: #516175;
+      --card: #ffffff;
+      --card-border: #e5e7eb;
+      --badge: #eef2f7;
+      --shadow: rgba(0,0,0,.08);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC","Hiragino Sans GB", "Microsoft YaHei","Helvetica Neue", Arial;
+  }
+  header.top {
+    position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(1.2) blur(6px);
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 16px; }
+  .title-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  h1 { font-size: 22px; margin: 0; }
+  .search { flex: 1 1 280px; position: relative; }
+  .search input {
+    width: 100%; padding: 10px 38px 10px 12px; border-radius: 12px; border: 1px solid var(--card-border);
+    background: var(--card); color: var(--fg); outline: none;
+  }
+  .search .hint { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 12px; }
+  .stat { color: var(--muted); font-size: 14px; }
+  .article {
+    border: 1px solid var(--card-border); background: var(--card); border-radius: 16px;
+    padding: 16px; margin: 16px 0; box-shadow: 0 10px 24px var(--shadow);
+  }
+  .article-title { margin: 0 0 8px 0; font-size: 20px; }
+  .meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+  .badge {
+    display: inline-block; padding: 4px 8px; border-radius: 999px; background: var(--badge); color: var(--muted); font-size: 12px;
+  }
+  .badge-muted { opacity: 0.9; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--card-border);
+    background: transparent; color: var(--fg); padding: 8px 12px; border-radius: 10px; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn-link {
+    text-decoration: none; border-color: transparent; color: var(--accent); font-weight: 600; padding: 0;
+  }
+  .content p { margin: 0 0 10px 0; }
+  .excerpt { color: var(--fg); }
+  .full.hidden { display: none; }
+  footer.page-end { color: var(--muted); text-align: center; padding: 32px 0 48px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="container">
+    <div class="title-row">
+      <h1>文章合集（80）</h1>
+      <div class="search">
+        <input id="q" type="search" placeholder="搜索标题 / 正文 / 来源…" aria-label="搜索" />
+        <span class="hint">Ctrl/⌘ + F 也可</span>
+      </div>
+      <div class="stat"><span id="shownCount">80</span>/<span id="totalCount">80</span> 篇</div>
+    </div>
+  </div>
+</header>
+
+<main class="container" id="list">
+
+    <article id="a1" class="article" data-search="直击深圳楼市新政首日：房企酝酿收回折扣，楼盘来访量有所提升 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">直击深圳楼市新政首日：房企酝酿收回折扣，楼盘来访量有所提升 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506761428.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a2" class="article" data-search="重大突破 新型超导材料问世！机构盯上5只高增长潜力股 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">重大突破 新型超导材料问世！机构盯上5只高增长潜力股 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506760138.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a3" class="article" data-search="600363 布局电磁弹射火箭技术！记者实探 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">600363 布局电磁弹射火箭技术！记者实探 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506759480.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a4" class="article" data-search="中国婴配粉，老大换了？丨消费参考+ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">中国婴配粉，老大换了？丨消费参考+ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506758629.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a5" class="article" data-search="新华财经晚报：下周a股解禁市值逾960亿元 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">新华财经晚报：下周A股解禁市值逾960亿元 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506758144.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a6" class="article" data-search="外企看好中国智能产业 冀共享机遇 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">外企看好中国智能产业 冀共享机遇 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506757744.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a7" class="article" data-search="2025年中国农民丰收节金秋消费季启动 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">2025年中国农民丰收节金秋消费季启动 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506753556.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a8" class="article" data-search="话费充值最低50元起？网友质疑：不合理，强制交易 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">话费充值最低50元起？网友质疑：不合理，强制交易 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506753445.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a9" class="article" data-search="热搜！我国规划撞击一颗小行星 2022年美国曾实施小行星撞击试验 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">热搜！我国规划撞击一颗小行星 2022年美国曾实施小行星撞击试验 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506752265.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a10" class="article" data-search="百度前高级副总裁王劲创业失败 自动驾驶公司进入破产程序 已失联 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">百度前高级副总裁王劲创业失败 自动驾驶公司进入破产程序 已失联 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506751978.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a11" class="article" data-search="疯狂囤黄金！全球央行黄金储备反超美债 系29年来首次！美元“霸权”落幕？ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">疯狂囤黄金！全球央行黄金储备反超美债 系29年来首次！美元“霸权”落幕？ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506751517.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a12" class="article" data-search="中星9c卫星正式投用 中国广播电视专用卫星实现全面国产化 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">中星9C卫星正式投用 中国广播电视专用卫星实现全面国产化 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506750745.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a13" class="article" data-search="西工大实现航天器柔性传感系统首次在轨验证 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">西工大实现航天器柔性传感系统首次在轨验证 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506749861.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a14" class="article" data-search="中俄旅游搜索量暴增！双向免签将启，航司网络布局迎收获期 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">中俄旅游搜索量暴增！双向免签将启，航司网络布局迎收获期 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506751165.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a15" class="article" data-search="受集团场出栏缩量等因素影响 本周猪价出现反弹 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">受集团场出栏缩量等因素影响 本周猪价出现反弹 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506749753.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a16" class="article" data-search="罕见！办公室门口听到内幕 买入股票大赚 罚单来了！ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">罕见！办公室门口听到内幕 买入股票大赚 罚单来了！ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506749654.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a17" class="article" data-search="上海召开民营经济圆桌会 打造高质量民营孵化器 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">上海召开民营经济圆桌会 打造高质量民营孵化器 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506749532.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a18" class="article" data-search="兔子嗨跑营称与“最快女护士”张水华无任何商业签约或经济利益往来 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">兔子嗨跑营称与“最快女护士”张水华无任何商业签约或经济利益往来 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506749327.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a19" class="article" data-search="权威数读｜一周“靓”数 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">权威数读｜一周“靓”数 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506749294.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a20" class="article" data-search="*st紫天财务造假退市！下周解禁股名单出炉 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">*ST紫天财务造假退市！下周解禁股名单出炉 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506747573.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a21" class="article" data-search="深圳楼市限购调整 今日起施行！ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">深圳楼市限购调整 今日起施行！ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506748022.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a22" class="article" data-search="一些地方违规发福利、突击花钱 过紧日子需强化监督 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">一些地方违规发福利、突击花钱 过紧日子需强化监督 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506747375.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a23" class="article" data-search="辛巴被相关部门带走调查？辛选集团相关人士回应来了 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">辛巴被相关部门带走调查？辛选集团相关人士回应来了 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506746670.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a24" class="article" data-search="威马新股东发声：9月复产 并承诺清偿债务 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">威马新股东发声：9月复产 并承诺清偿债务 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506745732.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a25" class="article" data-search="调整就是机会！机构大动作调仓 75只行业etf被疯狂扫货 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">调整就是机会！机构大动作调仓 75只行业ETF被疯狂扫货 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506745168.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a26" class="article" data-search="易会满被查 其银行学校多名同学先期落马 详情披露：其8月29日左右被带走调查 几个家人也被一并带走 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">易会满被查 其银行学校多名同学先期落马 详情披露：其8月29日左右被带走调查 几个家人也被一并带走 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506744292.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a27" class="article" data-search="易会满被查！任职工行30余年 曾称证监会工作如履薄冰 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">易会满被查！任职工行30余年 曾称证监会工作如履薄冰 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506744011.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a28" class="article" data-search="“战争部”！特朗普签了 “这可是个大动作” _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">“战争部”！特朗普签了 “这可是个大动作” _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506744713.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a29" class="article" data-search="易会满被查！执掌证监会5年 沪指20次失守3000点 曾屡提金融反腐 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">易会满被查！执掌证监会5年 沪指20次失守3000点 曾屡提金融反腐 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506744142.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a30" class="article" data-search="突然崩盘！又一家国际知名品牌受到关税重创！ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">突然崩盘！又一家国际知名品牌受到关税重创！ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506742183.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a31" class="article" data-search="美线集运运价9月初小幅下跌 业内预计下旬至国庆有望回温 但持续性有限 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">美线集运运价9月初小幅下跌 业内预计下旬至国庆有望回温 但持续性有限 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506741569.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a32" class="article" data-search="正部级易会满被查：曾执掌中国证监会5年 7月底最后一次露面 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">正部级易会满被查：曾执掌中国证监会5年 7月底最后一次露面 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506741367.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a33" class="article" data-search="执掌证监会5年 易会满接受调查 数月前曾赴浙江调研 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">执掌证监会5年 易会满接受调查 数月前曾赴浙江调研 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506738719.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a34" class="article" data-search="中国证监会原主席易会满被查 今年落马中管干部已有41人 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">中国证监会原主席易会满被查 今年落马中管干部已有41人 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506738558.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a35" class="article" data-search="周末打虎！涉嫌严重违纪违法 易会满被查（附简历） _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">周末打虎！涉嫌严重违纪违法 易会满被查（附简历） _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506738353.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a36" class="article" data-search="前证监会主席、30余载工行“老将”易会满被查 在任五年1700家ipo _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">前证监会主席、30余载工行“老将”易会满被查 在任五年1700家IPO _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506737138.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a37" class="article" data-search="重磅打虎！易会满落马 执掌中国证监会超5年 任期内3000点20次失守 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">重磅打虎！易会满落马 执掌中国证监会超5年 任期内3000点20次失守 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506737097.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a38" class="article" data-search="7万亿体育产业蓝图浮现 国产运动品牌增长空间在哪里？ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">7万亿体育产业蓝图浮现 国产运动品牌增长空间在哪里？ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506737352.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a39" class="article" data-search="国产头部半导体设备厂领跑！记者实探中微公司六大新品 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">国产头部半导体设备厂领跑！记者实探中微公司六大新品 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506736539.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a40" class="article" data-search="深圳“金九银十”迎政策大礼包 购房门槛、房贷成本双双下调 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">深圳“金九银十”迎政策大礼包 购房门槛、房贷成本双双下调 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506742918.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a41" class="article" data-search="打虎！证监会原主席易会满被查 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">打虎！证监会原主席易会满被查 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506736110.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a42" class="article" data-search="退休的券商分公司老总被罚 代客交易亏近300万 还有两券商违规揽客 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">退休的券商分公司老总被罚 代客交易亏近300万 还有两券商违规揽客 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506742873.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a43" class="article" data-search="openai重组chatgpt个性研究团队！ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">OpenAI重组ChatGPT个性研究团队！ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506742795.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a44" class="article" data-search="招商蛇口：前8个月销售金额约1240亿元 8月斥资128.75亿元获得4宗地块 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">招商蛇口：前8个月销售金额约1240亿元 8月斥资128.75亿元获得4宗地块 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506732982.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a45" class="article" data-search="中国创新药授权交易大热 如何紧握商业化质效主导权？ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">中国创新药授权交易大热 如何紧握商业化质效主导权？ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506721028.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a46" class="article" data-search="要口碑还是要销量？激怒打工人的桃李面包 7天涨粉超8000人 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">要口碑还是要销量？激怒打工人的桃李面包 7天涨粉超8000人 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506720692.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a47" class="article" data-search="关税大消息！特朗普签了 对进口关税范围进行调整 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">关税大消息！特朗普签了 对进口关税范围进行调整 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506719239.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a48" class="article" data-search="欧洲国家讨论向乌派兵！普京喊话：在乌外军将成合法打击目标！梅德韦杰夫最新表态 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">欧洲国家讨论向乌派兵！普京喊话：在乌外军将成合法打击目标！梅德韦杰夫最新表态 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506719120.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a49" class="article" data-search="奥乐齐降价、永辉“胖改”、清美开首店 商超们在上海又卷起来了 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">奥乐齐降价、永辉“胖改”、清美开首店 商超们在上海又卷起来了 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506719054.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a50" class="article" data-search="美军跨洋摧毁“委内瑞拉运毒船”打死11人 合法吗？ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">美军跨洋摧毁“委内瑞拉运毒船”打死11人 合法吗？ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506718977.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a51" class="article" data-search="同店药品线下比网售贵？我们去了10家药店 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">同店药品线下比网售贵？我们去了10家药店 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506718490.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a52" class="article" data-search="光储“牛股”捷佳伟创股东减持计划接连不断 股价一个多月内接近翻倍 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">光储“牛股”捷佳伟创股东减持计划接连不断 股价一个多月内接近翻倍 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506716147.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a53" class="article" data-search="“卖铲人”股价5天上涨超50% 固态电池“军备竞赛”打得如何了？ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">“卖铲人”股价5天上涨超50% 固态电池“军备竞赛”打得如何了？ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506715626.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a54" class="article" data-search="公募基金降费改革收官在即 每年让利有望超500亿元 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">公募基金降费改革收官在即 每年让利有望超500亿元 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506715493.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a55" class="article" data-search="aidc高速互联需求不止 ocs会是下一个答案吗？ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">AIDC高速互联需求不止 OCS会是下一个答案吗？ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506715858.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a56" class="article" data-search="稀缺！机构盯上的筹码大幅集中滞涨股曝光 仅15只！ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">稀缺！机构盯上的筹码大幅集中滞涨股曝光 仅15只！ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506685062.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a57" class="article" data-search="天价“赌约”！10000亿美元天价薪酬！马斯克深夜刷屏！ _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">天价“赌约”！10000亿美元天价薪酬！马斯克深夜刷屏！ _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506555221.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a58" class="article" data-search="ai芯片赛道“黑马”来袭 英伟达4万亿市值红线受威胁 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">AI芯片赛道“黑马”来袭 英伟达4万亿市值红线受威胁 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506529568.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a59" class="article" data-search="全球市场：美股三大指数收跌 博通涨超9% 英伟达跌近3% 国际金价创新高 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">全球市场：美股三大指数收跌 博通涨超9% 英伟达跌近3% 国际金价创新高 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506513348.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a60" class="article" data-search="特朗普称美联储主席人选是沃勒、沃什和哈塞特 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">特朗普称美联储主席人选是沃勒、沃什和哈塞特 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506515935.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a61" class="article" data-search="沙特据称正推动欧佩克+提前放油：抢市占与稳油价矛盾升级 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">沙特据称正推动欧佩克+提前放油：抢市占与稳油价矛盾升级 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506510686.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a62" class="article" data-search="特朗普批评欧盟对谷歌罚款 称将考虑反制 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">特朗普批评欧盟对谷歌罚款 称将考虑反制 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506492873.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a63" class="article" data-search="落实车企账期承诺还需突破多个难点 零部件企业：一些合作项目实际账期变化不明显 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">落实车企账期承诺还需突破多个难点 零部件企业：一些合作项目实际账期变化不明显 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506489837.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a64" class="article" data-search="现货黄金升至3600美元 再创历史新高 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">现货黄金升至3600美元 再创历史新高 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509063506479528.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a65" class="article" data-search="深圳出台楼市新政：除福田南山外 深圳8区进一步放松住房限购政策 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">深圳出台楼市新政：除福田南山外 深圳8区进一步放松住房限购政策 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/a/202509053506415478.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a66" class="article" data-search="美股频道 - eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">美股频道 -</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://stock.eastmoney.com/america.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a67" class="article" data-search="焦点 - eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">焦点 -</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://finance.eastmoney.com/yaowen.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a68" class="article" data-search="新股 _ 股票频道 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">新股 _ 股票频道 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://stock.eastmoney.com/newstock.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a69" class="article" data-search="股指期货频道 - eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">股指期货频道 -</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://stock.eastmoney.com/gzqh.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a70" class="article" data-search="全球频道 - eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">全球频道 -</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://stock.eastmoney.com/global.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a71" class="article" data-search="基金吧 eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">基金吧</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://guba.eastmoney.com/jj.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a72" class="article" data-search="焦点 - eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">焦点 -</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://finance.eastmoney.com/yaowen.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a73" class="article" data-search="纵深调查 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">纵深调查 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://finance.eastmoney.com/a/czsdc.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a74" class="article" data-search="财经日历 _ 数据中心 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">财经日历 _ 数据中心 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://data.eastmoney.com/cjrl/default.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a75" class="article" data-search="会议专题 - 专题频道 - 东方财富网 eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">会议专题 - 专题频道 - 东方财富网</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="https://topic.eastmoney.com/list/huiyi.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a76" class="article" data-search="资讯精华 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">资讯精华 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://finance.eastmoney.com/a/cywjh.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a77" class="article" data-search="国内经济 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">国内经济 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://finance.eastmoney.com/a/cgnjj.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a78" class="article" data-search="国际经济 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">国际经济 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://finance.eastmoney.com/a/cgjjj.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a79" class="article" data-search="证券聚焦 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">证券聚焦 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://finance.eastmoney.com/a/czqyw.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a80" class="article" data-search="公司资讯 _ eastmoney">
+      <header class="article-header">
+        <h2 class="article-title">公司资讯 _</h2>
+        <div class="meta"><span class="badge badge-muted">eastmoney</span><a class="btn btn-link" href="http://finance.eastmoney.com/a/cgsxw.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+</main>
+
+<footer class="page-end">
+  由 CSV 自动生成 • 本页可离线打开
+</footer>
+
+<script>
+  const list = document.getElementById('list');
+  const q = document.getElementById('q');
+  const shownCount = document.getElementById('shownCount');
+
+  function toggleFull(btn) {
+    const wrap = btn.closest('.content');
+    const full = wrap.querySelector('.full');
+    const excerpt = wrap.querySelector('.excerpt');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      full.classList.add('hidden');
+      excerpt.classList.remove('hidden');
+      btn.textContent = '展开全文';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      full.classList.remove('hidden');
+      excerpt.classList.add('hidden');
+      btn.textContent = '收起';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function updateFilter() {
+    const kw = q.value.trim().toLowerCase();
+    let shown = 0;
+    for (const card of list.querySelectorAll('.article')) {
+      const hay = card.dataset.search || '';
+      const hit = !kw || hay.includes(kw);
+      card.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    }
+    shownCount.textContent = shown;
+  }
+
+  q.addEventListener('input', updateFilter);
+  updateFilter();
+</script>
+</body>
+</html>

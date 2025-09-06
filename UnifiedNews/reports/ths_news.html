@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文章合集（13）</title>
+<style>
+  :root {
+    --bg: #0b0c0f;
+    --fg: #e7e9ee;
+    --muted: #a1a8b3;
+    --card: #151821;
+    --card-border: #232735;
+    --accent: #3b82f6;
+    --badge: #1f2937;
+    --shadow: rgba(0,0,0,.25);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f8fafc;
+      --fg: #0b1220;
+      --muted: #516175;
+      --card: #ffffff;
+      --card-border: #e5e7eb;
+      --badge: #eef2f7;
+      --shadow: rgba(0,0,0,.08);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC","Hiragino Sans GB", "Microsoft YaHei","Helvetica Neue", Arial;
+  }
+  header.top {
+    position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(1.2) blur(6px);
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 16px; }
+  .title-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  h1 { font-size: 22px; margin: 0; }
+  .search { flex: 1 1 280px; position: relative; }
+  .search input {
+    width: 100%; padding: 10px 38px 10px 12px; border-radius: 12px; border: 1px solid var(--card-border);
+    background: var(--card); color: var(--fg); outline: none;
+  }
+  .search .hint { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 12px; }
+  .stat { color: var(--muted); font-size: 14px; }
+  .article {
+    border: 1px solid var(--card-border); background: var(--card); border-radius: 16px;
+    padding: 16px; margin: 16px 0; box-shadow: 0 10px 24px var(--shadow);
+  }
+  .article-title { margin: 0 0 8px 0; font-size: 20px; }
+  .meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+  .badge {
+    display: inline-block; padding: 4px 8px; border-radius: 999px; background: var(--badge); color: var(--muted); font-size: 12px;
+  }
+  .badge-muted { opacity: 0.9; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--card-border);
+    background: transparent; color: var(--fg); padding: 8px 12px; border-radius: 10px; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn-link {
+    text-decoration: none; border-color: transparent; color: var(--accent); font-weight: 600; padding: 0;
+  }
+  .content p { margin: 0 0 10px 0; }
+  .excerpt { color: var(--fg); }
+  .full.hidden { display: none; }
+  footer.page-end { color: var(--muted); text-align: center; padding: 32px 0 48px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="container">
+    <div class="title-row">
+      <h1>文章合集（13）</h1>
+      <div class="search">
+        <input id="q" type="search" placeholder="搜索标题 / 正文 / 来源…" aria-label="搜索" />
+        <span class="hint">Ctrl/⌘ + F 也可</span>
+      </div>
+      <div class="stat"><span id="shownCount">13</span>/<span id="totalCount">13</span> 篇</div>
+    </div>
+  </div>
+</header>
+
+<main class="container" id="list">
+
+    <article id="a1" class="article" data-search="财政部权威回复！20个政府采购实例答疑，可参考 ths">
+      <header class="article-header">
+        <h2 class="article-title">财政部权威回复！20个政府采购实例答疑，可参考</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670943242.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a2" class="article" data-search="中国结算，大动作！这些机构可提交申请 ths">
+      <header class="article-header">
+        <h2 class="article-title">中国结算，大动作！这些机构可提交申请</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670943169.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a3" class="article" data-search="国务院国资委党委巡视组收到反映一些领导干部的问题线索，已转有关方面处理 ths">
+      <header class="article-header">
+        <h2 class="article-title">国务院国资委党委巡视组收到反映一些领导干部的问题线索，已转有关方面处理</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670942868.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a4" class="article" data-search="交通部领导有调整 ths">
+      <header class="article-header">
+        <h2 class="article-title">交通部领导有调整</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670942748.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a5" class="article" data-search="涉嫌严重违纪违法，十四届全国政协经济委员会副主任易会满被查 ths">
+      <header class="article-header">
+        <h2 class="article-title">涉嫌严重违纪违法，十四届全国政协经济委员会副主任易会满被查</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670942060.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a6" class="article" data-search="联合国将恢复举行落实“两国方案”高级别国际会议 ths">
+      <header class="article-header">
+        <h2 class="article-title">联合国将恢复举行落实“两国方案”高级别国际会议</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670941796.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a7" class="article" data-search="9月份中国零售业景气指数为50.6% 创近8个月新高 ths">
+      <header class="article-header">
+        <h2 class="article-title">9月份中国零售业景气指数为50.6% 创近8个月新高</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670942376.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a8" class="article" data-search="中国零售业景气指数创近8个月新高 ths">
+      <header class="article-header">
+        <h2 class="article-title">中国零售业景气指数创近8个月新高</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670942198.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a9" class="article" data-search="50.6％！中国零售业景气指数创8个月以来新高 ths">
+      <header class="article-header">
+        <h2 class="article-title">50.6％！中国零售业景气指数创8个月以来新高</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670942183.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a10" class="article" data-search="业内预计8月份cpi同比或转负 ppi同比降幅收窄 ths">
+      <header class="article-header">
+        <h2 class="article-title">业内预计8月份CPI同比或转负 PPI同比降幅收窄</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670938108.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a11" class="article" data-search="8月份新增信贷、社融或环比回升 ths">
+      <header class="article-header">
+        <h2 class="article-title">8月份新增信贷、社融或环比回升</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250906/c670938106.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a12" class="article" data-search="8月份全球制造业pmi为49.9% 全球经济恢复力度有所回升 ths">
+      <header class="article-header">
+        <h2 class="article-title">8月份全球制造业PMI为49.9% 全球经济恢复力度有所回升</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250905/c670936202.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a13" class="article" data-search="ctfi综合指数创2025年6月25日以来新高，原油运价上行 ths">
+      <header class="article-header">
+        <h2 class="article-title">CTFI综合指数创2025年6月25日以来新高，原油运价上行</h2>
+        <div class="meta"><span class="badge badge-muted">ths</span><a class="btn btn-link" href="http://news.10jqka.com.cn/20250905/c670925630.shtml" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"></div>
+        <div class="full hidden"></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+</main>
+
+<footer class="page-end">
+  由 CSV 自动生成 • 本页可离线打开
+</footer>
+
+<script>
+  const list = document.getElementById('list');
+  const q = document.getElementById('q');
+  const shownCount = document.getElementById('shownCount');
+
+  function toggleFull(btn) {
+    const wrap = btn.closest('.content');
+    const full = wrap.querySelector('.full');
+    const excerpt = wrap.querySelector('.excerpt');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      full.classList.add('hidden');
+      excerpt.classList.remove('hidden');
+      btn.textContent = '展开全文';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      full.classList.remove('hidden');
+      excerpt.classList.add('hidden');
+      btn.textContent = '收起';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function updateFilter() {
+    const kw = q.value.trim().toLowerCase();
+    let shown = 0;
+    for (const card of list.querySelectorAll('.article')) {
+      const hay = card.dataset.search || '';
+      const hit = !kw || hay.includes(kw);
+      card.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    }
+    shownCount.textContent = shown;
+  }
+
+  q.addEventListener('input', updateFilter);
+  updateFilter();
+</script>
+</body>
+</html>

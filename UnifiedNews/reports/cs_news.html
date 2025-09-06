@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文章合集（26）</title>
+<style>
+  :root {
+    --bg: #0b0c0f;
+    --fg: #e7e9ee;
+    --muted: #a1a8b3;
+    --card: #151821;
+    --card-border: #232735;
+    --accent: #3b82f6;
+    --badge: #1f2937;
+    --shadow: rgba(0,0,0,.25);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f8fafc;
+      --fg: #0b1220;
+      --muted: #516175;
+      --card: #ffffff;
+      --card-border: #e5e7eb;
+      --badge: #eef2f7;
+      --shadow: rgba(0,0,0,.08);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC","Hiragino Sans GB", "Microsoft YaHei","Helvetica Neue", Arial;
+  }
+  header.top {
+    position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(1.2) blur(6px);
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 16px; }
+  .title-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  h1 { font-size: 22px; margin: 0; }
+  .search { flex: 1 1 280px; position: relative; }
+  .search input {
+    width: 100%; padding: 10px 38px 10px 12px; border-radius: 12px; border: 1px solid var(--card-border);
+    background: var(--card); color: var(--fg); outline: none;
+  }
+  .search .hint { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 12px; }
+  .stat { color: var(--muted); font-size: 14px; }
+  .article {
+    border: 1px solid var(--card-border); background: var(--card); border-radius: 16px;
+    padding: 16px; margin: 16px 0; box-shadow: 0 10px 24px var(--shadow);
+  }
+  .article-title { margin: 0 0 8px 0; font-size: 20px; }
+  .meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+  .badge {
+    display: inline-block; padding: 4px 8px; border-radius: 999px; background: var(--badge); color: var(--muted); font-size: 12px;
+  }
+  .badge-muted { opacity: 0.9; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--card-border);
+    background: transparent; color: var(--fg); padding: 8px 12px; border-radius: 10px; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn-link {
+    text-decoration: none; border-color: transparent; color: var(--accent); font-weight: 600; padding: 0;
+  }
+  .content p { margin: 0 0 10px 0; }
+  .excerpt { color: var(--fg); }
+  .full.hidden { display: none; }
+  footer.page-end { color: var(--muted); text-align: center; padding: 32px 0 48px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="container">
+    <div class="title-row">
+      <h1>文章合集（26）</h1>
+      <div class="search">
+        <input id="q" type="search" placeholder="搜索标题 / 正文 / 来源…" aria-label="搜索" />
+        <span class="hint">Ctrl/⌘ + F 也可</span>
+      </div>
+      <div class="stat"><span id="shownCount">26</span>/<span id="totalCount">26</span> 篇</div>
+    </div>
+  </div>
+</header>
+
+<main class="container" id="list">
+
+    <article id="a1" class="article" data-search="为了全人类的美好未来——智库报告解析中国全球公共思想产品的供给与贡献 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 17:03:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">为了全人类的美好未来——智库报告解析中国全球公共思想产品的供给与贡献</h2>
+        <div class="meta"><span class="badge">2025-09-06 17:03:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511148.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a2" class="article" data-search="福建证监局深化常态化走访工作 聚力助推上市公司质量提升 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 16:58:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">福建证监局深化常态化走访工作 聚力助推上市公司质量提升</h2>
+        <div class="meta"><span class="badge">2025-09-06 16:58:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511147.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a3" class="article" data-search="盘兴高铁进入联调联试阶段 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 15:53:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">盘兴高铁进入联调联试阶段</h2>
+        <div class="meta"><span class="badge">2025-09-06 15:53:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511146.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a4" class="article" data-search="2025年中国农民丰收节金秋消费季启动 首页 &gt; 要闻 &gt; 民生消费 cs 2025-09-06 15:52:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">2025年中国农民丰收节金秋消费季启动</h2>
+        <div class="meta"><span class="badge">2025-09-06 15:52:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/msxf/202509/t20250906_6511145.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a5" class="article" data-search="思维导图来了！一图了解《回应时代呼唤 解答世界之问——中国全球公共思想产品的供给与贡献》智库报告 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 15:47:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">思维导图来了！一图了解《回应时代呼唤 解答世界之问——中国全球公共思想产品的供给与贡献》智库报告</h2>
+        <div class="meta"><span class="badge">2025-09-06 15:47:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511144.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a6" class="article" data-search="一跨1768米！国内最大跨度跨海大桥首个主塔顺利封顶 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 14:54:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">一跨1768米！国内最大跨度跨海大桥首个主塔顺利封顶</h2>
+        <div class="meta"><span class="badge">2025-09-06 14:54:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511143.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a7" class="article" data-search="新华社国家高端智库发布《回应时代呼唤 解答世界之问——中国全球公共思想产品的供给与贡献》智库报告 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 14:24:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">新华社国家高端智库发布《回应时代呼唤 解答世界之问——中国全球公共思想产品的供给与贡献》智库报告</h2>
+        <div class="meta"><span class="badge">2025-09-06 14:24:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511137.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a8" class="article" data-search="习近平向中俄友好、和平与发展委员会第十五次双方全会致贺辞 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 14:18:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">习近平向中俄友好、和平与发展委员会第十五次双方全会致贺辞</h2>
+        <div class="meta"><span class="badge">2025-09-06 14:18:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511136.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a9" class="article" data-search="亿华通终止收购旭阳氢能 产业协同步伐引关注 首页 &gt; 公司·产经 &gt; 公司要闻 cs 2025-09-06 13:05:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">亿华通终止收购旭阳氢能 产业协同步伐引关注</h2>
+        <div class="meta"><span class="badge">2025-09-06 13:05:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxw/202509/t20250906_6511129.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a10" class="article" data-search="新华时评｜唱响南方声音，展现南方担当 首页 &gt; 要闻 &gt; 观点评论 cs 2025-09-06 12:43:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">新华时评｜唱响南方声音，展现南方担当</h2>
+        <div class="meta"><span class="badge">2025-09-06 12:43:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/jr/202509/t20250906_6511125.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 观点评论</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 观点评论</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a11" class="article" data-search="祥生医疗：持续攻坚高端彩超 ai技术积极赋能智能诊疗 首页 &gt; 公司·产经 &gt; 公司要闻 cs 2025-09-06 12:39:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">祥生医疗：持续攻坚高端彩超 AI技术积极赋能智能诊疗</h2>
+        <div class="meta"><span class="badge">2025-09-06 12:39:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxw/202509/t20250906_6511123.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a12" class="article" data-search="厦门产融会客厅揭牌 首场活动聚焦股权投资与产融结合新机遇 首页 &gt; 公司·产经 &gt; 公司要闻 cs 2025-09-06 11:28:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">厦门产融会客厅揭牌 首场活动聚焦股权投资与产融结合新机遇</h2>
+        <div class="meta"><span class="badge">2025-09-06 11:28:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxw/202509/t20250906_6511116.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a13" class="article" data-search="国机集团董事长张晓仑：综合运用市值管理工具箱 多措并举提升上市公司投资价值 首页 &gt; 公司·产经 &gt; 公司要闻 cs 2025-09-06 10:30:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">国机集团董事长张晓仑：综合运用市值管理工具箱 多措并举提升上市公司投资价值</h2>
+        <div class="meta"><span class="badge">2025-09-06 10:30:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxw/202509/t20250906_6511109.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a14" class="article" data-search="深空经济万亿美元蓝海启幕 商业航天与长线资本成破局关键 首页 &gt; 公司·产经 &gt; 公司要闻 cs 2025-09-06 10:24:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">深空经济万亿美元蓝海启幕 商业航天与长线资本成破局关键</h2>
+        <div class="meta"><span class="badge">2025-09-06 10:24:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxw/202509/t20250906_6511108.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a15" class="article" data-search="2025世界智能产业博览会在渝开幕 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-06 10:02:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">2025世界智能产业博览会在渝开幕</h2>
+        <div class="meta"><span class="badge">2025-09-06 10:02:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250906_6511102.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a16" class="article" data-search="新华社评论员：在和平与发展的人间正道上携手同行 首页 &gt; 要闻 &gt; 观点评论 cs 2025-09-06 09:44:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">新华社评论员：在和平与发展的人间正道上携手同行</h2>
+        <div class="meta"><span class="badge">2025-09-06 09:44:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/jr/202509/t20250906_6511098.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 观点评论</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 观点评论</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a17" class="article" data-search="融通基金：构建平台化投研体系，多策略驱动业绩持续领先 首页 &gt; 公司·产经 &gt; 公司巡礼 cs 2025-09-05 20:53:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">融通基金：构建平台化投研体系，多策略驱动业绩持续领先</h2>
+        <div class="meta"><span class="badge">2025-09-05 20:53:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxl/202509/t20250905_6511080.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司巡礼</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司巡礼</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a18" class="article" data-search="广东试点“车网互动” 探索储能新路径 首页 &gt; 产经 cs 2025-09-05 18:54:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">广东试点“车网互动” 探索储能新路径</h2>
+        <div class="meta"><span class="badge">2025-09-05 18:54:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/cj2020/202509/t20250905_6511061.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 产经</p></div>
+        <div class="full hidden"><p>首页 &gt; 产经</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a19" class="article" data-search="就业政策宣传月活动定于9月全国开展 首页 &gt; 要闻 &gt; 民生消费 cs 2025-09-05 18:53:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">就业政策宣传月活动定于9月全国开展</h2>
+        <div class="meta"><span class="badge">2025-09-05 18:53:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/msxf/202509/t20250905_6511060.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a20" class="article" data-search="上海创新节庆活动促文旅商体展消费升温 首页 &gt; 要闻 &gt; 民生消费 cs 2025-09-05 18:50:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">上海创新节庆活动促文旅商体展消费升温</h2>
+        <div class="meta"><span class="badge">2025-09-05 18:50:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/msxf/202509/t20250905_6511055.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a21" class="article" data-search="儿童、伤残军警等旅客购票优惠措施进一步优化 首页 &gt; 要闻 &gt; 民生消费 cs 2025-09-05 16:39:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">儿童、伤残军警等旅客购票优惠措施进一步优化</h2>
+        <div class="meta"><span class="badge">2025-09-05 16:39:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/msxf/202509/t20250905_6511029.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 民生消费</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a22" class="article" data-search="2025世界智能产业博览会在渝开幕 集中展示3000余项创新成果 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-05 15:02:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">2025世界智能产业博览会在渝开幕 集中展示3000余项创新成果</h2>
+        <div class="meta"><span class="badge">2025-09-05 15:02:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250905_6511012.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a23" class="article" data-search="穿越市场波动：多元资产配置如何助力财富增长 首页 &gt; 公司·产经 &gt; 公司巡礼 cs 2025-09-05 13:48:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">穿越市场波动：多元资产配置如何助力财富增长</h2>
+        <div class="meta"><span class="badge">2025-09-05 13:48:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxl/202509/t20250905_6511008.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司巡礼</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司巡礼</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a24" class="article" data-search="挖掘下沉市场 各地多措并举提振汽车消费 首页 &gt; 产经 cs 2025-09-05 08:25:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">挖掘下沉市场 各地多措并举提振汽车消费</h2>
+        <div class="meta"><span class="badge">2025-09-05 08:25:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/cj2020/202509/t20250905_6510926.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 产经</p></div>
+        <div class="full hidden"><p>首页 &gt; 产经</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a25" class="article" data-search="蔚来多维破局“信任”考题 李斌欲以15万辆销量保驾四季度盈利 首页 &gt; 公司·产经 &gt; 公司要闻 cs 2025-09-05 08:21:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">蔚来多维破局“信任”考题 李斌欲以15万辆销量保驾四季度盈利</h2>
+        <div class="meta"><span class="badge">2025-09-05 08:21:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/ssgs/gsxw/202509/t20250905_6510923.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 公司·产经 &gt; 公司要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+
+    <article id="a26" class="article" data-search="丽星邮轮“领航星”号首访三亚 首页 &gt; 要闻 &gt; 财经要闻 cs 2025-09-05 07:46:00+08:00">
+      <header class="article-header">
+        <h2 class="article-title">丽星邮轮“领航星”号首访三亚</h2>
+        <div class="meta"><span class="badge">2025-09-05 07:46:00+08:00</span><span class="badge badge-muted">cs</span><a class="btn btn-link" href="https://www.cs.com.cn/xwzx/hg/202509/t20250905_6510907.html" target="_blank" rel="noopener noreferrer">阅读原文</a></div>
+      </header>
+      <div class="content">
+        <div class="excerpt"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <div class="full hidden"><p>首页 &gt; 要闻 &gt; 财经要闻</p></div>
+        <button class="btn btn-toggle" aria-expanded="false" onclick="toggleFull(this)">展开全文</button>
+      </div>
+    </article>
+    
+</main>
+
+<footer class="page-end">
+  由 CSV 自动生成 • 本页可离线打开
+</footer>
+
+<script>
+  const list = document.getElementById('list');
+  const q = document.getElementById('q');
+  const shownCount = document.getElementById('shownCount');
+
+  function toggleFull(btn) {
+    const wrap = btn.closest('.content');
+    const full = wrap.querySelector('.full');
+    const excerpt = wrap.querySelector('.excerpt');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      full.classList.add('hidden');
+      excerpt.classList.remove('hidden');
+      btn.textContent = '展开全文';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      full.classList.remove('hidden');
+      excerpt.classList.add('hidden');
+      btn.textContent = '收起';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function updateFilter() {
+    const kw = q.value.trim().toLowerCase();
+    let shown = 0;
+    for (const card of list.querySelectorAll('.article')) {
+      const hay = card.dataset.search || '';
+      const hit = !kw || hay.includes(kw);
+      card.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    }
+    shownCount.textContent = shown;
+  }
+
+  q.addEventListener('input', updateFilter);
+  updateFilter();
+</script>
+</body>
+</html>
